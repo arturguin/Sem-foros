@@ -16,6 +16,7 @@ void setup() {
   pinMode (6, OUTPUT);   // Semáforo Peões Vertical Verde
   pinMode (5, OUTPUT);   // Semáforo Peões Horizontal Vermelho
   pinMode (4, OUTPUT);   // Semáforo Peões Horizontal Verde
+  pinMode (A0, OUTPUT);  // Porta onde vai ligar o Buzzer
   
   /* Testa as luzes dos leds para verificar se estão todas a funcionar
      Liga cada luz durante 1 segundo e depois desliga
@@ -44,6 +45,7 @@ void linha1 () {
   digitalWrite (10, HIGH); // Semáforo Horizontal Vermelho
   digitalWrite ( 7, HIGH); // Semáforo Peões Vertical Vermelho
   digitalWrite ( 4, HIGH); // Semáforo Peões Horizontal Verde
+  tone(A0,750);
   delay(55*1000); // espera 4 segundos
   
   // Pisca luz verde durante 5 seg
@@ -65,9 +67,11 @@ void linha2() {
   for (int a=0; a < 5; a++) {
     digitalWrite (12, HIGH); // Semáforo Vertical Amarelo
     digitalWrite (4, HIGH); // Semáforo Peões Horizontal Verde
+    tone(A0,750);
     delay(500);
     digitalWrite (12, LOW); // Semáforo Vertical Amarelo
     digitalWrite (4, LOW); // Semáforo Peões Horizontal Verde
+    tone(A0,0);
     delay(500);
   }
 }
@@ -83,13 +87,16 @@ void linha3() {
   digitalWrite (13, HIGH); // Semáforo Vertical Vermelho
   digitalWrite ( 5, HIGH); // Semáforo Peões Horizontal Vermelho
   digitalWrite ( 6, HIGH); // Semáforo Peões Vertical Verde
+  tone(A0,500);
   delay (15*1000); // espera 4 segundos
   
   // Pisca luz Horizontal Verde durante 5 seg
   for (int a=0; a < 5; a++) {
     digitalWrite (8, HIGH); // Semáforo Horizontal Verde
+    tone(A0,500);
     delay(500);
     digitalWrite (8, LOW); // Semáforo Horizontal Verde
+    tone(A0,0);
     delay(500);
   }
 }
